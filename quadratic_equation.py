@@ -50,13 +50,9 @@ def plotQuadraticEqSolvability(z, interactive=False):
   solvable = delta >= 0
 
   if interactive:
-    try:
-      colors = np.where(solvable, 'Ma rozwiązaznia rzeczywiste.', 'Nie ma rozwiązań rzeczywistych.')
-      fig = px.scatter_3d(x=a, y=b, z=c, color=colors, hover_name=colors, labels=dict(x="a", y="b", z="c"), title="Rozwiązywalność równania kwadratowego.")
-      fig.show()
-    except ImportError:
-      print("Plotly nie jest zainstalowany. Używam matplotlib.")
-      interactive = False
+    colors = np.where(solvable, 'Ma rozwiązaznia rzeczywiste.', 'Nie ma rozwiązań rzeczywistych.')
+    fig = px.scatter_3d(x=a, y=b, z=c, color=colors, hover_name=colors, labels=dict(x="a", y="b", z="c"), title="Rozwiązywalność równania kwadratowego.")
+    fig.show()
 
   if not interactive:
     fig = plt.figure()
